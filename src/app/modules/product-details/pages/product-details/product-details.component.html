@@ -1,0 +1,75 @@
+<div class="add-to-card">
+  <app-add-to-card [product]="product"></app-add-to-card>
+</div>
+
+<div class="container">
+  <div class="left-side">
+    <button class="back-btn" [routerLink]="['/products']">
+      <i class="bx bx-arrow-back"></i>back to list
+    </button>
+    <div class="image-wrapper">
+      <img [src]="selectImage.src" alt="" />
+    </div>
+  </div>
+
+  <div class="right-side">
+    <div class="tag">
+      <span>HOTSALE</span>
+    </div>
+
+    <h2 class="main-title">
+      {{ product?.title }}
+    </h2>
+
+    <div class="rating">
+      <span class="company">{{ product?.companyName }}</span>
+      <bar-rating
+        [rate]="product?.rating"
+        [max]="5"
+        [readOnly]="true"
+      ></bar-rating>
+      <span class="rating-reviews">
+        {{ product?.rating }} ({{ product?.reviews }} reviews)
+      </span>
+    </div>
+
+    <div class="description">
+      <h3 class="title">Description:</h3>
+      <ul>
+        <li *ngFor="let item of product?.description">
+          {{ item }}
+        </li>
+      </ul>
+    </div>
+
+    <div class="images">
+      <div
+        class="image-wrapper"
+        *ngFor="let img of images; let i = index"
+        [ngClass]="{ selected: img.isSelected }"
+        (click)="onSelectImage(i)"
+      >
+        <img [src]="img.src" />
+      </div>
+    </div>
+
+    <div class="sizes-wrapper">
+      <h4 class="title">Sizes:</h4>
+      <div class="sizes">
+        <span class="size selected">1.5 kg</span>
+        <span class="size">1 kg</span>
+        <span class="size">500 gr</span>
+        <span class="size">250 gr</span>
+      </div>
+    </div>
+
+    <div class="ingrendients">
+      <h3 class="title">Ingredients:</h3>
+      <ul>
+        <li>Nutrisi</li>
+        <li>Vitamin E</li>
+        <li>Protein</li>
+      </ul>
+    </div>
+  </div>
+</div>

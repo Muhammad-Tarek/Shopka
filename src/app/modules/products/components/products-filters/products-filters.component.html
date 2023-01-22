@@ -1,0 +1,47 @@
+<form [formGroup]="form" class="container">
+  <div class="filter-wrapper">
+    <h4 class="title" (click)="toggleCategories()">
+      <span>Category</span>
+      <i class="bx bx-chevron-down" *ngIf="!showCategories"></i>
+      <i class="bx bx-chevron-up" *ngIf="showCategories"></i>
+    </h4>
+    <div class="filters" [ngClass]="{ active: showCategories }">
+      <div
+        class="form-input"
+        *ngFor="let category of categories; let i = index"
+      >
+        <input
+          id="category-{{ i }}"
+          type="radio"
+          [value]="category"
+          formControlName="category"
+          (change)="changeCategory()"
+        />
+        <label for="category-{{ i }}">{{ category }}</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="filter-wrapper mt-25px">
+    <h4 class="title" (click)="togglePrices()">
+      <span>Expanded Filters</span>
+      <i class="bx bx-chevron-down" *ngIf="!showPrices"></i>
+      <i class="bx bx-chevron-up" *ngIf="showPrices"></i>
+    </h4>
+    <div class="filters" [ngClass]="{ active: showPrices }">
+      <div class="form-input" *ngFor="let price of prices; let i = index">
+        <input
+          id="price-{{ i }}"
+          type="radio"
+          [value]="price"
+          formControlName="price"
+          (change)="changePrice()"
+        />
+        <label for="price-{{ i }}">
+          Price {{ price.min }} <i class="bx bx-right-arrow-alt"></i>
+          {{ price.max }}
+        </label>
+      </div>
+    </div>
+  </div>
+</form>

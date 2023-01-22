@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="filters">
+    <app-products-filters></app-products-filters>
+  </div>
+
+  <div class="products-container">
+    <div *ngIf="filteredProducts?.length">
+      <div class="sort-by">
+        <fieldset>
+          <legend>Sort By</legend>
+          <select>
+            <option selected>price</option>
+          </select>
+        </fieldset>
+      </div>
+      <div class="products">
+        <div
+          class="product"
+          *ngFor="let product of filteredProducts"
+          [routerLink]="[product.id]"
+        >
+          <app-product [product]="product"></app-product>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="!filteredProducts?.length">
+      <app-empty-state
+        message="No products available please refine your query..."
+      ></app-empty-state>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="card">
+  <div class="image-wrapper">
+    <img [src]="product.images[0]" alt="" />
+  </div>
+  <p class="title">
+    {{ product.title }}
+  </p>
+  <div class="price-wrapper">
+    <span class="price">${{ product.price }}</span>
+    <span *ngIf="product.discount" class="discount"
+      >{{ product.discount * 100 }}% OFF</span
+    >
+    <span *ngIf="product.isCoolDeal" class="deal">Cool deal!</span>
+  </div>
+  <p class="notes">
+    {{ product.notes }}
+  </p>
+  <div class="card-footer">
+    <div class="rating">
+      <bar-rating
+        [rate]="product.rating"
+        [max]="5"
+        [readOnly]="true"
+      ></bar-rating>
+      <span>{{ product.rating }}</span>
+    </div>
+    <button><i class="bx bx-heart"></i> Watch</button>
+  </div>
+</div>
