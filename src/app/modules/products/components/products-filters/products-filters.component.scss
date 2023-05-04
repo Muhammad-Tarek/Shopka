@@ -1,0 +1,89 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  @media (max-width: 992px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+.filter-wrapper {
+  background-color: #f7f7fa;
+  border-radius: 4px;
+  padding: 8px 12px;
+  height: max-content;
+  @media (max-width: 992px) {
+    flex-grow: 1;
+  }
+
+  .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding-right: 5px;
+    cursor: pointer;
+    span {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 24px;
+      color: #19191d;
+    }
+    i {
+      font-size: 25px;
+    }
+  }
+
+  .filters {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    height: 0;
+    margin-top: 0;
+    overflow: hidden;
+    &.active {
+      height: auto;
+      margin-top: 20px;
+    }
+    .form-input {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      input,
+      label {
+        cursor: pointer;
+      }
+      label {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        color: #19191d;
+      }
+    }
+  }
+}
+
+input[type="radio"] {
+  appearance: none;
+  background-color: transparent;
+  border: 1px solid #19191d;
+  width: 18px;
+  height: 18px;
+  display: grid;
+  place-content: center;
+  margin: 0;
+}
+
+input[type="radio"]::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  transform: scale(0);
+  transition: 0.2s transform ease-in-out;
+  background-color: #2264d1;
+}
+
+input[type="radio"]:checked::before {
+  transform: scale(1);
+}

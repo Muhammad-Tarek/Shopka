@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="left-side">
+    <div class="img-wrapper">
+      <img [src]="product.images[0]" alt="" />
+    </div>
+    <div class="info">
+      <h4 class="title">{{ product.title }}</h4>
+      <span class="company-name">{{ product.companyName }}</span>
+    </div>
+  </div>
+
+  <div class="right-side">
+    <div class="input-wrapper">
+      <label>Qty:</label>
+      <span class="minus" (click)="setQuantity('minus')">
+        <i class="bx bx-minus"></i>
+      </span>
+      <span class="quantity">{{ quantity }}</span>
+      <span class="plus" (click)="setQuantity('plus')">
+        <i class="bx bx-plus"></i>
+      </span>
+    </div>
+    <button class="add" (click)="addToCard()">ADD TO CARD</button>
+  </div>
+</div>

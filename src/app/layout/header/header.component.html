@@ -1,0 +1,74 @@
+<div class="navbar">
+  <div class="left">
+    <div class="logo">
+      <img src="./assets/images/logo.png" alt="logo" />
+    </div>
+    <a>Sell on Shopka</a>
+    <a>Register</a>
+  </div>
+
+  <div class="middle">
+    <div class="search-input">
+      <i class="bx bx-search"></i>
+      <input type="search" (input)="onSearch($event)" />
+    </div>
+    <a class="consumer">Consumer Electronics</a>
+  </div>
+
+  <div class="right">
+    <button class="signIn-btn" (click)="signOut()" *ngIf="isAuthenticated">
+      Sign out
+    </button>
+    <button
+      class="signIn-btn"
+      [routerLink]="['/login']"
+      *ngIf="!isAuthenticated"
+    >
+      Sign in
+    </button>
+    <div class="myCart">
+      <span class="text">My cart</span>
+      <span class="number">{{ cartNumber }}</span>
+    </div>
+    <div *ngIf="isAuthenticated">
+      <img src="./assets/images/user.png" alt="" />
+    </div>
+  </div>
+</div>
+
+<div class="toggle-navbar">
+  <div class="logo">
+    <img src="./assets/images/logo.png" alt="logo" />
+  </div>
+
+  <span (click)="toggleDropdown()" class="menu">
+    <i class="bx bx-menu"></i>
+  </span>
+
+  <div class="dropdown" [ngClass]="{ show: showDropdown }">
+    <a>Sell on Shopka</a>
+    <a>Register</a>
+    <div class="search-input">
+      <i class="bx bx-search"></i>
+      <input type="search" (input)="onSearch($event)" />
+    </div>
+    <a class="consumer">Consumer Electronics</a>
+    <button class="signIn-btn" (click)="signOut()" *ngIf="isAuthenticated">
+      Sign out
+    </button>
+    <button
+      class="signIn-btn"
+      [routerLink]="['/login']"
+      *ngIf="!isAuthenticated"
+    >
+      Sign in
+    </button>
+    <div class="myCart">
+      <span class="text">My cart</span>
+      <span class="number">{{ cartNumber }}</span>
+    </div>
+    <div *ngIf="isAuthenticated">
+      <img src="./assets/images/user.png" alt="" />
+    </div>
+  </div>
+</div>
